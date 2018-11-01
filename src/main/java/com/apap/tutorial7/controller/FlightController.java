@@ -36,8 +36,6 @@ public class FlightController {
     @Autowired
     private FlightService flightService;
     
-    @Autowired
-    private PilotService pilotService;
     
     @PostMapping(value = "/add")
     public FlightModel addFlightSubmit(@RequestBody FlightModel flight) {
@@ -69,7 +67,7 @@ public class FlightController {
     		@RequestParam("origin") String origin, @RequestParam("destination") String destination, @RequestParam("time") Date time) {
     	FlightModel flight = flightService.getFlightById(flightId);
     	if(flight.equals(null)) {
-    		return "Couldn't find your pilot";
+    		return "Couldn't find your flight";
     	}
     	flight.setDestination(destination);
     	flight.setOrigin(origin);

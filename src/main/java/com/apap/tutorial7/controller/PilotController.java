@@ -39,7 +39,7 @@ public class PilotController {
     
     @GetMapping(value="/status/{licenseNumber}")
     public String getStatus(@PathVariable("licenseNumber") String licenseNumber) throws Exception{
-    	String path = Setting.pilotUrl + "pilot/licenseNumber=" + licenseNumber;
+    	String path = Setting.pilotUrl + "/pilot?licenseNumber=" + licenseNumber;
     	return restTemplate.getForEntity(path, String.class).getBody();
     }
     
